@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wutao.work/"/>
-  <updated>2018-12-26T07:50:51.388Z</updated>
+  <updated>2018-12-27T09:47:25.045Z</updated>
   <id>http://wutao.work/</id>
   
   <author>
@@ -17,16 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://wutao.work/2018/12/26/test/"/>
-    <id>http://wutao.work/2018/12/26/test/</id>
-    <published>2018-12-26T07:50:51.000Z</published>
-    <updated>2018-12-26T07:50:51.388Z</updated>
+    <title>netlify实现自动化部署</title>
+    <link href="http://wutao.work/2018/12/27/netlify/"/>
+    <id>http://wutao.work/2018/12/27/netlify/</id>
+    <published>2018-12-27T09:31:22.000Z</published>
+    <updated>2018-12-27T09:47:25.045Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用-github-或者-gitlab-登陆-netlify"><a href="#使用-github-或者-gitlab-登陆-netlify" class="headerlink" title="使用 github 或者 gitlab 登陆 netlify"></a>使用 github 或者 gitlab 登陆 netlify</h2><p>首先，打开 netlify 网站(<a href="https://app.netlify.com/" target="_blank" rel="noopener">https://app.netlify.com/</a>)<br>然后使用 github 或者 gitlab 账号登录</p><h2 id="根据-github-gitlab-仓库创建网站"><a href="#根据-github-gitlab-仓库创建网站" class="headerlink" title="根据 github/gitlab 仓库创建网站"></a>根据 github/gitlab 仓库创建网站</h2><p>点击 New site from Git 按钮 然后选择仓库所在的平台已经需要部署的仓库</p><p><strong> 注意 </strong></p><ul><li>部署分支，默认 master</li><li>打包命令，诸如 npm run build，gulp build 之类</li><li>打包后目录，静态资源文件夹，诸如 build dist，可不填</li></ul><p>完成之后点击途中 deploy site 按钮</p><h2 id="设置域名，绑定域名"><a href="#设置域名，绑定域名" class="headerlink" title="设置域名，绑定域名"></a>设置域名，绑定域名</h2><p>部署完 netlify 会为我们随机生成一个 netlify 下的域名，我们可以更改其前缀名，然后绑定到自己的域名下。</p><p>点击 Site settings 按钮，然后在下方点击 Change site name 按钮，然后在弹出框中输入自己需要更改的前缀名，点击保存即可。<br>点击 Domain settings 按钮，然后在下方点击 Add custom domain 按钮，然后在弹出框中输入自己需要绑定的完整域名<br>这个时候会显示 ！Check DNS configuration，因为我们还没有设置域名解析到 netlify 服务器，所以这个时候需要到你自己域名的相应服务商网站登录之后在需要绑定的域名下添加一条 CNAME 解析，解析的主机记录即对应的 netlify 域名值，这样就可以使用自己的域名访问自己的网站啦</p><h2 id="生成-HTTPS-证书，实现-HTTPS-访问"><a href="#生成-HTTPS-证书，实现-HTTPS-访问" class="headerlink" title="生成 HTTPS 证书，实现 HTTPS 访问"></a>生成 HTTPS 证书，实现 HTTPS 访问</h2><p>点击 Verify DNS configuration 按钮，提示成功就可以用 https 访问域名了</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h2 id=&quot;使用-github-或者-gitlab-登陆-netlify&quot;&gt;&lt;a href=&quot;#使用-github-或者-gitlab-登陆-netlify&quot; class=&quot;headerlink&quot; title=&quot;使用 github 或者 gitlab 登陆 netlify&quot;&gt;
+      
+    
     </summary>
     
+    
+      <category term="前端部署工具" scheme="http://wutao.work/tags/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
