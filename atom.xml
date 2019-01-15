@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wutao.work/"/>
-  <updated>2018-12-27T09:47:25.045Z</updated>
+  <updated>2019-01-15T08:34:27.274Z</updated>
   <id>http://wutao.work/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode修改背景</title>
+    <link href="http://wutao.work/2019/01/15/vscode%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/"/>
+    <id>http://wutao.work/2019/01/15/vscode修改背景/</id>
+    <published>2019-01-15T07:42:21.000Z</published>
+    <updated>2019-01-15T08:34:27.274Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/2019/01/15/vscode修改背景/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/2019/01/15/vscode修改背景/setting.jpg" alt=""></p><p>重启 vscode 就可以生效了。</p><p>以下三张图片是我自己用的，需要的自取。<br><img src="/2019/01/15/vscode修改背景/vscodeBg1.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg2.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg3.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装-background-插件&quot;&gt;&lt;a href=&quot;#安装-background-插件&quot; class=&quot;headerlink&quot; title=&quot;安装 background 插件&quot;&gt;&lt;/a&gt;安装 background 插件&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/201
+      
+    
+    </summary>
+    
+    
+      <category term="前端编辑器" scheme="http://wutao.work/tags/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>netlify实现自动化部署</title>
