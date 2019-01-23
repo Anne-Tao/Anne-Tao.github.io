@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wutao.work/"/>
-  <updated>2019-01-15T08:41:04.913Z</updated>
+  <updated>2019-01-23T03:15:17.591Z</updated>
   <id>http://wutao.work/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git代码提交规范</title>
+    <link href="http://wutao.work/2019/01/23/git%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/"/>
+    <id>http://wutao.work/2019/01/23/git代码提交规范/</id>
+    <published>2019-01-23T02:40:40.000Z</published>
+    <updated>2019-01-23T03:15:17.591Z</updated>
+    
+    <content type="html"><![CDATA[<p>git 的提交格式化有很多好处，本文整理一套自己用的提交信息格式。</p><h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p>提交信息包括三个部分：<code>header</code>，<code>body </code>和 <code>footer</code>。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure><p>其中，header 是必需的，body 和 footer 可以省略。</p><h2 id="header"><a href="#header" class="headerlink" title="header"></a>header</h2><p>Header 部分只有一行，包括俩个字段：<code>type</code>（必需）和 <code>subject</code>（必需）。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;: <span class="xml"><span class="tag">&lt;<span class="name">subject</span>&gt;</span></span></span><br></pre></td></tr></table></figure><h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>type 用于说明 commit 的类别，可以使用如下类别：</p><ul><li>feat：新功能（feature）</li><li>fix：修补 bug</li><li>doc：文档（documentation）</li><li>style： 格式（不影响代码运行的变动）</li><li>refactor：重构（即不是新增功能，也不是修改 bug 的代码变动）</li><li>test：增加测试</li><li>chore：构建过程或辅助工具的变动</li></ul><h3 id="subject"><a href="#subject" class="headerlink" title="subject"></a>subject</h3><p>subject 是 commit 目的的简短描述。</p><ol><li>以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes</li><li>第一个字母小写</li><li>结尾不加句号（。）</li></ol><h2 id="body"><a href="#body" class="headerlink" title="body"></a>body</h2><p>Body 部分是对本次 commit 的详细描述，可以分成多行。<br>注意：应该说明代码变动的动机，以及与以前行为的对比。</p><h2 id="footer"><a href="#footer" class="headerlink" title="footer"></a>footer</h2><p>Footer 部分只用于两种情况：</p><ul><li>关联 Issue</li><li>关闭 Issue</li></ul><h3 id="关联-Issue"><a href="#关联-Issue" class="headerlink" title="关联 Issue"></a>关联 Issue</h3><p>本次提交如果和某个 issue 有关系则需要写上这个，格式如下：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Issue #1, #2, #3</span><br></pre></td></tr></table></figure><h3 id="关闭-Issue"><a href="#关闭-Issue" class="headerlink" title="关闭 Issue"></a>关闭 Issue</h3><p>如果当前提交信息解决了某个 issue，那么可以在 Footer 部分关闭这个 issue，关闭的格式如下：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Close #1, #2, #3</span><br></pre></td></tr></table></figure><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">feat: 添加了分享功能</span><br><span class="line">给每篇博文添加了分享功能</span><br><span class="line"></span><br><span class="line">- 添加分享到微博功能</span><br><span class="line">- 添加分享到微信功能</span><br><span class="line">- 添加分享到朋友圈功能</span><br><span class="line"></span><br><span class="line">Issue #1, #2</span><br><span class="line">Close #1</span><br></pre></td></tr></table></figure><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener">Commit message 和 Change log 编写指南</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;git 的提交格式化有很多好处，本文整理一套自己用的提交信息格式。&lt;/p&gt;
+&lt;h2 id=&quot;格式&quot;&gt;&lt;a href=&quot;#格式&quot; class=&quot;headerlink&quot; title=&quot;格式&quot;&gt;&lt;/a&gt;格式&lt;/h2&gt;&lt;p&gt;提交信息包括三个部分：&lt;code&gt;header&lt;/code
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://wutao.work/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="git" scheme="http://wutao.work/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vscode修改背景</title>
     <link href="http://wutao.work/2019/01/15/vscode%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/"/>
     <id>http://wutao.work/2019/01/15/vscode修改背景/</id>
     <published>2019-01-15T07:42:21.000Z</published>
-    <updated>2019-01-15T08:41:04.913Z</updated>
+    <updated>2019-01-15T12:19:17.582Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/2019/01/15/vscode修改背景/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/2019/01/15/vscode修改背景/setting.jpg" alt=""></p><p>重启 vscode 就可以生效了。<br><img src="/2019/01/15/vscode修改背景/result.png" alt=""><br>看看效果是不是很 nice。</p><p>以下三张图片是我自己用的，需要的自取。<br><img src="/2019/01/15/vscode修改背景/vscodeBg1.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg2.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg3.jpg" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/2019/01/15/vscode修改背景/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/2019/01/15/vscode修改背景/setting.jpg" alt=""></p><p>重启 vscode 就可以生效了。<br><img src="/2019/01/15/vscode修改背景/result.png`" alt=""><br>看看效果是不是很 nice。</p><p>以下三张图片是我自己用的，需要的自取。<br><img src="/2019/01/15/vscode修改背景/vscodeBg1.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg2.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg3.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
