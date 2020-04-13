@@ -104,6 +104,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -181,6 +192,17 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
 		</a>
           
         </li>
@@ -544,7 +566,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"hexo","value":1},{"name":"Vue","value":2},{"name":"前端调试工具","value":1},{"name":"笔记","value":3},{"name":"前端学习","value":2}],
+                data: [{"name":"Vue","value":2},{"name":"前端调试工具","value":1},{"name":"hexo","value":1},{"name":"笔记","value":3},{"name":"前端学习","value":2}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -568,7 +590,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["前端编辑器","hexo -","debug","git","前端部署工具","vue项目实战","css","koa","nginx","js"]
+                data: ["前端编辑器","debug","hexo -","git","前端部署工具","vue项目实战","css","koa","nginx","js"]
             }
         ],
         yAxis: [
@@ -683,12 +705,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/hexo/">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo -</span>
-            </a>
-            
-            
-            
             <a href="/tags/前端编辑器/">
                 <span class="chip center-align waves-effect waves-light chip-default">前端编辑器</span>
             </a>
@@ -697,6 +713,12 @@
             
             <a href="/tags/debug/">
                 <span class="chip center-align waves-effect waves-light chip-default">debug</span>
+            </a>
+            
+            
+            
+            <a href="/tags/hexo/">
+                <span class="chip center-align waves-effect waves-light chip-default">hexo -</span>
             </a>
             
             

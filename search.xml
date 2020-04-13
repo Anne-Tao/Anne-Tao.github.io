@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建</title>
-    <url>/2018/10/29/first/</url>
-    <content><![CDATA[<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>电脑安装好node和git，终端执行命令:</p>
-<pre><code>sudo npm install -g hexo
-</code></pre><p>接着在任意位置创建一个文件夹，如Blog，cd到该路径下执行以下命令</p>
-<pre><code>hexo init
-</code></pre><a id="more"></a>
-<p>接下来是安装依赖包</p>
-<pre><code>npm install
-</code></pre><p>执行以下命令</p>
-<pre><code>hexo s
-</code></pre><p>在浏览器输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 就可以进行查看了。</p>
-<h2 id="部署到gitHub"><a href="#部署到gitHub" class="headerlink" title="部署到gitHub"></a>部署到gitHub</h2><p>创建Github账号并新建项目<br>项目名称为用户名.github.io的固定写</p>
-<p>编辑自己创建的本地博客文件夹中的_config.yml中的deploy</p>
-<pre><code>deploy:
-  type: git
-  repo: git@github.com:username/username.github.io.git (我自己的git@github.com:Anne-Tao/Anne-Tao.github.io)
-  branch: master
-</code></pre><p>为了能够使Hexo部署到GitHub上，需要安装一个插件</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p>修改完成之后保存退出，然后输入以下命令</p>
-<pre><code>hexo clean 
-hexo g
-hexo d
-</code></pre><h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>本站选的是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a><br>在根目录下执行如下命令</p>
-<pre><code>    git clone https://github.com/iissnan/hexo-theme-next themes/next
-</code></pre><p>将根目录下_config.yml里theme的名称landscape修改为next</p>
-<h2 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h2><p>本站参考别人分享的<a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener">hexo的next主题个性化配置教程</a>,写的非常好，省的自己折腾了</p>
-<h2 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h2><p>在根目录下source目录下新建文件名为：<code>CNAME</code>文件，直接将自己的域名如:<code>wutao.work</code>写入<br>登录<a href="https://www.aliyun.com/?utm_content=se_1000301881" target="_blank" rel="noopener">阿里云账号</a>，在域名解析界面添加3条记录</p>
-<pre><code>@          A             192.30.252.153
-@          A             192.30.252.154
-www      CNAME         username.github.io.
-</code></pre>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo -</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vscode+Eslint+Prettier写Vue项目</title>
     <url>/2018/11/15/Vscode-Eslint-Prettier%E5%86%99Vue%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<h2 id="安装-Vscode-和插件"><a href="#安装-Vscode-和插件" class="headerlink" title="安装 Vscode 和插件"></a>安装 Vscode 和插件</h2><p>首先安装<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Vscode 官网</a>下载安装包，安装好了之后启动，然后<code>ctrl+shift+X</code>,安装以下插件</p>
@@ -97,6 +56,47 @@ www      CNAME         username.github.io.
       </categories>
       <tags>
         <tag>debug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建</title>
+    <url>/2018/10/29/first/</url>
+    <content><![CDATA[<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>电脑安装好node和git，终端执行命令:</p>
+<pre><code>sudo npm install -g hexo
+</code></pre><p>接着在任意位置创建一个文件夹，如Blog，cd到该路径下执行以下命令</p>
+<pre><code>hexo init
+</code></pre><a id="more"></a>
+<p>接下来是安装依赖包</p>
+<pre><code>npm install
+</code></pre><p>执行以下命令</p>
+<pre><code>hexo s
+</code></pre><p>在浏览器输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 就可以进行查看了。</p>
+<h2 id="部署到gitHub"><a href="#部署到gitHub" class="headerlink" title="部署到gitHub"></a>部署到gitHub</h2><p>创建Github账号并新建项目<br>项目名称为用户名.github.io的固定写</p>
+<p>编辑自己创建的本地博客文件夹中的_config.yml中的deploy</p>
+<pre><code>deploy:
+  type: git
+  repo: git@github.com:username/username.github.io.git (我自己的git@github.com:Anne-Tao/Anne-Tao.github.io)
+  branch: master
+</code></pre><p>为了能够使Hexo部署到GitHub上，需要安装一个插件</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>修改完成之后保存退出，然后输入以下命令</p>
+<pre><code>hexo clean 
+hexo g
+hexo d
+</code></pre><h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>本站选的是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a><br>在根目录下执行如下命令</p>
+<pre><code>    git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre><p>将根目录下_config.yml里theme的名称landscape修改为next</p>
+<h2 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h2><p>本站参考别人分享的<a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener">hexo的next主题个性化配置教程</a>,写的非常好，省的自己折腾了</p>
+<h2 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h2><p>在根目录下source目录下新建文件名为：<code>CNAME</code>文件，直接将自己的域名如:<code>wutao.work</code>写入<br>登录<a href="https://www.aliyun.com/?utm_content=se_1000301881" target="_blank" rel="noopener">阿里云账号</a>，在域名解析界面添加3条记录</p>
+<pre><code>@          A             192.30.252.153
+@          A             192.30.252.154
+www      CNAME         username.github.io.
+</code></pre>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo -</tag>
       </tags>
   </entry>
   <entry>
@@ -188,6 +188,17 @@ Close #1
       </tags>
   </entry>
   <entry>
+    <title>vscode修改背景</title>
+    <url>/2019/01/15/vscode%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/</url>
+    <content><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/2019/01/15/vscode修改背景/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/2019/01/15/vscode修改背景/setting.jpg" alt=""></p>
+<p>重启 vscode 就可以生效了。<br><img src="/2019/01/15/vscode修改背景/result.png`" alt=""><br>看看效果是不是很 nice。</p>
+<p>以下三张图片是我自己用的，需要的自取。<br><img src="/2019/01/15/vscode修改背景/vscodeBg1.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg2.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg3.jpg" alt=""></p>
+]]></content>
+      <tags>
+        <tag>前端编辑器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue去哪儿</title>
     <url>/2018/11/23/vue%E5%8E%BB%E5%93%AA%E5%84%BF/</url>
     <content><![CDATA[<h2 id="环境的搭建"><a href="#环境的搭建" class="headerlink" title="环境的搭建"></a>环境的搭建</h2><h3 id="建立文件夹"><a href="#建立文件夹" class="headerlink" title="建立文件夹"></a>建立文件夹</h3><p>在电脑合适的位置建立文件夹 <code>mkdir travel</code></p>
@@ -206,17 +217,6 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
       </categories>
       <tags>
         <tag>vue项目实战</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vscode修改背景</title>
-    <url>/2019/01/15/vscode%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/</url>
-    <content><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/2019/01/15/vscode修改背景/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/2019/01/15/vscode修改背景/setting.jpg" alt=""></p>
-<p>重启 vscode 就可以生效了。<br><img src="/2019/01/15/vscode修改背景/result.png`" alt=""><br>看看效果是不是很 nice。</p>
-<p>以下三张图片是我自己用的，需要的自取。<br><img src="/2019/01/15/vscode修改背景/vscodeBg1.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg2.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg3.jpg" alt=""></p>
-]]></content>
-      <tags>
-        <tag>前端编辑器</tag>
       </tags>
   </entry>
   <entry>
