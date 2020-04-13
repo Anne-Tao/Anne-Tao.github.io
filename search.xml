@@ -237,214 +237,6 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
       </tags>
   </entry>
   <entry>
-    <title>nginx学习</title>
-    <url>/2018/11/01/nginx/</url>
-    <content><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>购买阿里云 ECS.我用的操作系统是 CentOS 7.4 64 位版本。然后建立远程链接</p>
-<pre><code>ssh root@公网ip
-</code></pre><h3 id="用-yum-安装必要程序"><a href="#用-yum-安装必要程序" class="headerlink" title="用 yum 安装必要程序"></a>用 yum 安装必要程序</h3><pre><code>yum -y install gcc gcc-c++ autoconf pcre-devel make automake
-yum -y install wget httpd-tools vim
-</code></pre><a id="more"></a>
-<h3 id="建立目录"><a href="#建立目录" class="headerlink" title="建立目录"></a>建立目录</h3><p>1.在目录下建立一个文件夹例如 wutao 的文件夹。 2.进入 wutao 文件夹，命令行 cd wutao。 3.分别 mkdir 建立 app bacuup download logs work 文件夹</p>
-<h3 id="基于-Yum-的方式安装-Nginx"><a href="#基于-Yum-的方式安装-Nginx" class="headerlink" title="基于 Yum 的方式安装 Nginx"></a>基于 Yum 的方式安装 Nginx</h3><pre><code>yum list | grep nginx
-</code></pre><p>这时候出现以下内容<img src="http://www.jspang.com/static/upload/20181007/ljnFrPYc23562AtUSLvSIYpQ.png" alt=""><br>这个源只支持 1.1.12<br>在终端里输入:</p>
-<pre><code>vim /etc/yum.repos.d/nginx.repo
-</code></pre><p>将以下代码复制进去</p>
-<pre><code>[nginx]
-name=nginx repo
-baseurl=http://nginx.org/packages/centeros/7/$basearch/
-gpgcheck=0
-enabled=1
-</code></pre><p>按下 ESC 然后:wq 保存<br>执行命令</p>
-<pre><code>yum install nginx
-</code></pre><p>安装完成执行</p>
-<pre><code>nginx -v
-</code></pre><p>出现以下内容说明成功了<img src="http://www.jspang.com/static/upload/20181007/P6eXf6G5kJJ8L2mKDEZbHg1O.png" alt=""></p>
-<h2 id="nginx-配置说明"><a href="#nginx-配置说明" class="headerlink" title="nginx 配置说明"></a>nginx 配置说明</h2><h3 id="nginx-conf-文件解读"><a href="#nginx-conf-文件解读" class="headerlink" title="nginx.conf 文件解读"></a>nginx.conf 文件解读</h3><pre><code>cd /etc/nginx
-vim nginx.conf
-</code></pre><pre><code>#运行用户，默认即是nginx，可以不进行设置
-user  nginx;
-#Nginx进程，一般设置为和CPU核数一样
-worker_processes  1;
-#错误日志存放目录
-error_log  /var/log/nginx/error.log warn;
-#进程pid存放位置
-pid        /var/run/nginx.pid;
-events {
-    worker_connections  1024; # 单个后台进程的最大并发数
-}
-http {
-    include       /etc/nginx/mime.types;   #文件扩展名与类型映射表
-    default_type  application/octet-stream;  #默认文件类型
-    #设置日志模式
-    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
-                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
-                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
-    access_log  /var/log/nginx/access.log  main;   #nginx访问日志存放位置
-    sendfile        on;   #开启高效传输模式
-    #tcp_nopush     on;    #减少网络报文段的数量
-    keepalive_timeout  65;  #保持连接的时间，也叫超时时间
-    #gzip  on;  #开启gzip压缩
-    include /etc/nginx/conf.d/*.conf; #包含的子配置项位置和文件
-}
-</code></pre><h3 id="default-conf-配置项讲"><a href="#default-conf-配置项讲" class="headerlink" title="default.conf 配置项讲"></a>default.conf 配置项讲</h3><p>进入 conf.d 目录，然后使用 vim default.conf 进行查看。</p>
-<pre><code>server {
-    listen       80;   #配置监听端口
-    server_name  localhost;  //配置域名
-    #charset koi8-r;
-    #access_log  /var/log/nginx/host.access.log  main;
-    location / {
-        root   /usr/share/nginx/html;     #服务默认启动目录
-        index  index.html index.htm;    #默认访问文件
-    }
-    #error_page  404              /404.html;   # 配置404页面
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;   #错误状态码的显示页面，配置后需要重启
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
-    #location ~ \.php$ {
-    #    root           html;
-    #    fastcgi_pass   127.0.0.1:9000;
-    #    fastcgi_index  index.php;
-    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-    #    include        fastcgi_params;
-    #}
-    # deny access to .htaccess files, if Apache&#39;s document root
-    # concurs with nginx&#39;s one
-    #
-    #location ~ /\.ht {
-    #    deny  all;
-    #}
-}
-</code></pre><p>我们的服务目录放在了/usr/share/nginx/html 下，可以使用命令进入看一下目录下的文件。</p>
-<pre><code>cd /usr/share/nginx/html
-ls
-</code></pre><p>可以看到目录下面有两个文件，50x.html 和 index.html。我们可以使用 vim 进行编辑。</p>
-<h3 id="阿里云的安全组配置"><a href="#阿里云的安全组配置" class="headerlink" title="阿里云的安全组配置"></a>阿里云的安全组配置</h3><p>进入阿里云控制台，并找到 ECS 实例。点击实例后边的“更多”点击“网络和安全组” ，再点击“安全组配置”右上角添加“安全组配置”进行 80 端口的设置，具体设置如图就好。<br><img src="http://jspang.com/static/upload/20181009/N3bF8FMGxljMydjEdTztVw7g.png" alt=""></p>
-<h2 id="nginx-服务的启动、停止、重启"><a href="#nginx-服务的启动、停止、重启" class="headerlink" title="nginx 服务的启动、停止、重启"></a>nginx 服务的启动、停止、重启</h2><h3 id="nginx-的启动"><a href="#nginx-的启动" class="headerlink" title="nginx 的启动"></a>nginx 的启动</h3><p>在 CentOS7.4 版本里（低版本是不行的），是可以直接直接使用 nginx 启动服务的。</p>
-<pre><code>nginx
-</code></pre><p>使用 systemctl 命令启动</p>
-<pre><code>systemctl start nginx.service
-</code></pre><p>查询服务的运行状况。</p>
-<pre><code>ps aux | grep nginx
-</code></pre><h3 id="停止-nginx"><a href="#停止-nginx" class="headerlink" title="停止 nginx"></a>停止 nginx</h3><p>立刻停止</p>
-<pre><code>nginx  -s stop
-</code></pre><p>从容停止服务</p>
-<pre><code>nginx -s quit
-</code></pre><p>killall 方法杀死进程</p>
-<pre><code>killall nginx
-</code></pre><p>systemctl 停止</p>
-<pre><code>systemctl stop nginx.server
-</code></pre><h3 id="nginx-重启"><a href="#nginx-重启" class="headerlink" title="nginx 重启"></a>nginx 重启</h3><pre><code>systemctl restart nginx.service
-</code></pre><p>在重新编写或者修改 Nginx 的配置文件后</p>
-<pre><code>nginx -s reload
-</code></pre><h2 id="自定义错误页面"><a href="#自定义错误页面" class="headerlink" title="自定义错误页面"></a>自定义错误页面</h2><h3 id="多错误指向一个页面"><a href="#多错误指向一个页面" class="headerlink" title="多错误指向一个页面"></a>多错误指向一个页面</h3><pre><code>cd/etc/nginx/conf.d/default.conf
-</code></pre><p>可以看到这句话</p>
-<pre><code>error_page   500 502 503 504  /50x.html;
-</code></pre><p>error_page 指令用于自定义错误页面，500，502，503，504 这些就是 HTTP 中最常见的错误代码，/50.html 用于表示当发生上述指定的任意一个错误的时候，都是用网站根目录下的/50.html 文件进行处理。</p>
-<h3 id="单独为错误置顶处理方式"><a href="#单独为错误置顶处理方式" class="headerlink" title="单独为错误置顶处理方式"></a>单独为错误置顶处理方式</h3><p>新建一个 404 错误页面</p>
-<pre><code>error_page 404  /404_error.html;
-</code></pre><p>然后到网站目录下新建一个 404_error.html 文件，并写入一些信息。</p>
-<pre><code>&lt;html&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;body&gt;
-        &lt;h1&gt;404页面没有找到!&lt;/h1&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h3 id="把错误码换成一个地址"><a href="#把错误码换成一个地址" class="headerlink" title="把错误码换成一个地址"></a>把错误码换成一个地址</h3><pre><code>error_page  404 http://www.w3school.com.cn/;
-</code></pre><h3 id="简单实现访问控制"><a href="#简单实现访问控制" class="headerlink" title="简单实现访问控制"></a>简单实现访问控制</h3><p>可以直接在 default.conf 里进行配置。</p>
-<pre><code> location / {
-        deny   123.9.51.42;
-        allow  45.76.202.231;
-}
-</code></pre><h2 id="nginx-访问权限"><a href="#nginx-访问权限" class="headerlink" title="nginx 访问权限"></a>nginx 访问权限</h2><h3 id="指令优先级"><a href="#指令优先级" class="headerlink" title="指令优先级"></a>指令优先级</h3><pre><code> location / {
-    allow  45.76.202.231;
-    deny   all;
-}
-</code></pre><p>上面的配置表示只允许 45.76.202.231 进行访问，其他的 IP 是禁止访问的。但是如果我们把 deny all 指令，移动到 allow 45.76.202.231 之前，会发现所有的 IP 都不允许访问了<br><strong>这说明了一个问题：就是在同一个块下的两个权限指令，先出现的设置会覆盖后出现的设置（也就是谁先触发，谁起作用)</strong></p>
-<h3 id="复杂访问控制权限匹配"><a href="#复杂访问控制权限匹配" class="headerlink" title="复杂访问控制权限匹配"></a>复杂访问控制权限匹配</h3><pre><code>location =/img{
-        allow all;
-}
-location =/admin{
-    deny all;
-}
-</code></pre><h3 id="使用正则表达式设置访问权限"><a href="#使用正则表达式设置访问权限" class="headerlink" title="使用正则表达式设置访问权限"></a>使用正则表达式设置访问权限</h3><pre><code>location ~\.php$ {
-    deny all;
-}
-</code></pre><h2 id="Nginx-设置虚拟主机"><a href="#Nginx-设置虚拟主机" class="headerlink" title="Nginx 设置虚拟主机"></a>Nginx 设置虚拟主机</h2><h3 id="基于端口号配置虚拟主机"><a href="#基于端口号配置虚拟主机" class="headerlink" title="基于端口号配置虚拟主机"></a>基于端口号配置虚拟主机</h3><p>我们可以直接配置在主文件里 etc/nginx/nginx.conf 文件里， 也可以配置在子配置文件里 etc/nginx/conf.d/default.conf,当然你也可以再新建一个文件，只要在 conf.d 文件夹下就可以了。<br>修改配置文件中的 server 选项，这时候就会有两个 server。</p>
-<pre><code>server{
-    listen 8001;
-    server_name localhost;
-    root /usr/share/nginx/html/html8001;
-    index index.html;
-}
-</code></pre><p>然后我们就可以在浏览器中访问<a href="http://112.74.164.244:8001" target="_blank" rel="noopener">http://112.74.164.244:8001</a></p>
-<h3 id="基于-IP-的虚拟主机"><a href="#基于-IP-的虚拟主机" class="headerlink" title="基于 IP 的虚拟主机"></a>基于 IP 的虚拟主机</h3><pre><code>server{
-    listen 80;
-    server_name 112.74.164.244;
-    root /usr/share/nginx/html/html8001;
-    index index.html;
-}
-</code></pre><h3 id="配置以域名为划分的虚拟主机"><a href="#配置以域名为划分的虚拟主机" class="headerlink" title="配置以域名为划分的虚拟主机"></a>配置以域名为划分的虚拟主机</h3><pre><code>server{
-    listen 80;
-    server_name nginx2.jspang.com;
-    location / {
-        root /usr/share/nginx/html/html8001;
-        index index.html index.htm;
-    }
-}
-</code></pre><h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><pre><code>server{
-    listen 80;
-    server_name wutao.com;
-    location / {
-            proxy_pass http://wutao.com;
-    }
-}
-</code></pre><p>一般我们反向代理的都是一个 IP<br>其它反向代理指令<br>proxy_set_header :在将客户端请求发送给后端服务器之前，更改来自客户端的请求头信息。<br>proxy_connect_timeout:配置 Nginx 与后端代理服务器尝试建立连接的超时时间。<br>proxy_read_timeout : 配置 Nginx 向后端服务器组发出 read 请求后，等待相应的超时时间。<br>proxy_send_timeout：配置 Nginx 向后端服务器组发出 write 请求后，等待相应的超时时间。<br>proxy_redirect :用于修改后端服务器返回的响应头中的 Location 和 Refresh。</p>
-<h2 id="Nginx-适配-PC-或移动设备"><a href="#Nginx-适配-PC-或移动设备" class="headerlink" title="Nginx 适配 PC 或移动设备"></a>Nginx 适配 PC 或移动设备</h2><p>1.在/usr/share/nginx/目录下新建两个文件夹，分别为：pc 和 mobile 目录</p>
-<pre><code>cd /usr/share/nginx
-mkdir pc
-mkdir mobile
-</code></pre><p>2.在 pc 和 miblic 目录下，新建两个 index.html 文件，文件里下面内容</p>
-<pre><code>&lt;h1&gt;I am pc!&lt;/h1&gt;
-&lt;h1&gt;I am mobile!&lt;/h1&gt;
-</code></pre><p>3.进入 etc/nginx 修改 nginx.conf 文件，改为下面的形式:</p>
-<pre><code>server{
-    listen 80;
-    server_name nginx2.jspang.com;
-    location / {
-    root /usr/share/nginx/pc;
-    if ($http_user_agent ~* &#39;(Android|webOS|iPhone|iPod|BlackBerry)&#39;) {
-        root /usr/share/nginx/mobile;
-    }
-    index index.html;
-    }
-}
-</code></pre><h2 id="Nginx-的-Gzip-压缩配置"><a href="#Nginx-的-Gzip-压缩配置" class="headerlink" title="Nginx 的 Gzip 压缩配置"></a>Nginx 的 Gzip 压缩配置</h2><h3 id="gzip-的配置项"><a href="#gzip-的配置项" class="headerlink" title="gzip 的配置项"></a>gzip 的配置项</h3><p>gzip : 该指令用于开启或 关闭 gzip 模块。<br>gzip_buffers : 设置系统获取几个单位的缓存用于存储 gzip 的压缩结果数据流。<br>gzip_comp_level : gzip 压缩比，压缩级别是 1-9，1 的压缩级别最低，9 的压缩级别最高。压缩级别越高压缩率越大，压缩时间越长。<br>gzip_disable : 可以通过该指令对一些特定的 User-Agent 不使用压缩功能。<br>gzip_min_length:设置允许压缩的页面最小字节数，页面字节数从相应消息头的 Content-length 中进行获取。<br>gzip_http_version：识别 HTTP 协议版本，其值可以是 1.1.或 1.0.<br>gzip_proxied : 用于设置启用或禁用从代理服务器上收到相应内容 gzip 压缩。<br>gzip_vary : 用于在响应消息头中添加 Vary：Accept-Encoding,使代理服务器根据请求头中的 Accept-Encoding 识别是否启用 gzip 压缩。</p>
-<h3 id="gzip-最简单的配置"><a href="#gzip-最简单的配置" class="headerlink" title="gzip 最简单的配置"></a>gzip 最简单的配置</h3><pre><code>http {
-   .....
-    gzip on;
-    gzip_types text/plain application/javascript text/css;
-   .....
-}
-</code></pre><p>查看 HTTP 响应头信息。你可以清楚的看见 Content-Encoding 为 gzip 类型。</p>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-      </categories>
-      <tags>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>koa2学习</title>
     <url>/2018/11/03/koa2%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><p>新建一个文件夹如koa2文件夹</p>
@@ -774,6 +566,214 @@ app.listen(3000, () =&gt; {
       </categories>
       <tags>
         <tag>koa</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nginx学习</title>
+    <url>/2018/11/01/nginx/</url>
+    <content><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>购买阿里云 ECS.我用的操作系统是 CentOS 7.4 64 位版本。然后建立远程链接</p>
+<pre><code>ssh root@公网ip
+</code></pre><h3 id="用-yum-安装必要程序"><a href="#用-yum-安装必要程序" class="headerlink" title="用 yum 安装必要程序"></a>用 yum 安装必要程序</h3><pre><code>yum -y install gcc gcc-c++ autoconf pcre-devel make automake
+yum -y install wget httpd-tools vim
+</code></pre><a id="more"></a>
+<h3 id="建立目录"><a href="#建立目录" class="headerlink" title="建立目录"></a>建立目录</h3><p>1.在目录下建立一个文件夹例如 wutao 的文件夹。 2.进入 wutao 文件夹，命令行 cd wutao。 3.分别 mkdir 建立 app bacuup download logs work 文件夹</p>
+<h3 id="基于-Yum-的方式安装-Nginx"><a href="#基于-Yum-的方式安装-Nginx" class="headerlink" title="基于 Yum 的方式安装 Nginx"></a>基于 Yum 的方式安装 Nginx</h3><pre><code>yum list | grep nginx
+</code></pre><p>这时候出现以下内容<img src="http://www.jspang.com/static/upload/20181007/ljnFrPYc23562AtUSLvSIYpQ.png" alt=""><br>这个源只支持 1.1.12<br>在终端里输入:</p>
+<pre><code>vim /etc/yum.repos.d/nginx.repo
+</code></pre><p>将以下代码复制进去</p>
+<pre><code>[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centeros/7/$basearch/
+gpgcheck=0
+enabled=1
+</code></pre><p>按下 ESC 然后:wq 保存<br>执行命令</p>
+<pre><code>yum install nginx
+</code></pre><p>安装完成执行</p>
+<pre><code>nginx -v
+</code></pre><p>出现以下内容说明成功了<img src="http://www.jspang.com/static/upload/20181007/P6eXf6G5kJJ8L2mKDEZbHg1O.png" alt=""></p>
+<h2 id="nginx-配置说明"><a href="#nginx-配置说明" class="headerlink" title="nginx 配置说明"></a>nginx 配置说明</h2><h3 id="nginx-conf-文件解读"><a href="#nginx-conf-文件解读" class="headerlink" title="nginx.conf 文件解读"></a>nginx.conf 文件解读</h3><pre><code>cd /etc/nginx
+vim nginx.conf
+</code></pre><pre><code>#运行用户，默认即是nginx，可以不进行设置
+user  nginx;
+#Nginx进程，一般设置为和CPU核数一样
+worker_processes  1;
+#错误日志存放目录
+error_log  /var/log/nginx/error.log warn;
+#进程pid存放位置
+pid        /var/run/nginx.pid;
+events {
+    worker_connections  1024; # 单个后台进程的最大并发数
+}
+http {
+    include       /etc/nginx/mime.types;   #文件扩展名与类型映射表
+    default_type  application/octet-stream;  #默认文件类型
+    #设置日志模式
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+    access_log  /var/log/nginx/access.log  main;   #nginx访问日志存放位置
+    sendfile        on;   #开启高效传输模式
+    #tcp_nopush     on;    #减少网络报文段的数量
+    keepalive_timeout  65;  #保持连接的时间，也叫超时时间
+    #gzip  on;  #开启gzip压缩
+    include /etc/nginx/conf.d/*.conf; #包含的子配置项位置和文件
+}
+</code></pre><h3 id="default-conf-配置项讲"><a href="#default-conf-配置项讲" class="headerlink" title="default.conf 配置项讲"></a>default.conf 配置项讲</h3><p>进入 conf.d 目录，然后使用 vim default.conf 进行查看。</p>
+<pre><code>server {
+    listen       80;   #配置监听端口
+    server_name  localhost;  //配置域名
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+    location / {
+        root   /usr/share/nginx/html;     #服务默认启动目录
+        index  index.html index.htm;    #默认访问文件
+    }
+    #error_page  404              /404.html;   # 配置404页面
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;   #错误状态码的显示页面，配置后需要重启
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+    # deny access to .htaccess files, if Apache&#39;s document root
+    # concurs with nginx&#39;s one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+</code></pre><p>我们的服务目录放在了/usr/share/nginx/html 下，可以使用命令进入看一下目录下的文件。</p>
+<pre><code>cd /usr/share/nginx/html
+ls
+</code></pre><p>可以看到目录下面有两个文件，50x.html 和 index.html。我们可以使用 vim 进行编辑。</p>
+<h3 id="阿里云的安全组配置"><a href="#阿里云的安全组配置" class="headerlink" title="阿里云的安全组配置"></a>阿里云的安全组配置</h3><p>进入阿里云控制台，并找到 ECS 实例。点击实例后边的“更多”点击“网络和安全组” ，再点击“安全组配置”右上角添加“安全组配置”进行 80 端口的设置，具体设置如图就好。<br><img src="http://jspang.com/static/upload/20181009/N3bF8FMGxljMydjEdTztVw7g.png" alt=""></p>
+<h2 id="nginx-服务的启动、停止、重启"><a href="#nginx-服务的启动、停止、重启" class="headerlink" title="nginx 服务的启动、停止、重启"></a>nginx 服务的启动、停止、重启</h2><h3 id="nginx-的启动"><a href="#nginx-的启动" class="headerlink" title="nginx 的启动"></a>nginx 的启动</h3><p>在 CentOS7.4 版本里（低版本是不行的），是可以直接直接使用 nginx 启动服务的。</p>
+<pre><code>nginx
+</code></pre><p>使用 systemctl 命令启动</p>
+<pre><code>systemctl start nginx.service
+</code></pre><p>查询服务的运行状况。</p>
+<pre><code>ps aux | grep nginx
+</code></pre><h3 id="停止-nginx"><a href="#停止-nginx" class="headerlink" title="停止 nginx"></a>停止 nginx</h3><p>立刻停止</p>
+<pre><code>nginx  -s stop
+</code></pre><p>从容停止服务</p>
+<pre><code>nginx -s quit
+</code></pre><p>killall 方法杀死进程</p>
+<pre><code>killall nginx
+</code></pre><p>systemctl 停止</p>
+<pre><code>systemctl stop nginx.server
+</code></pre><h3 id="nginx-重启"><a href="#nginx-重启" class="headerlink" title="nginx 重启"></a>nginx 重启</h3><pre><code>systemctl restart nginx.service
+</code></pre><p>在重新编写或者修改 Nginx 的配置文件后</p>
+<pre><code>nginx -s reload
+</code></pre><h2 id="自定义错误页面"><a href="#自定义错误页面" class="headerlink" title="自定义错误页面"></a>自定义错误页面</h2><h3 id="多错误指向一个页面"><a href="#多错误指向一个页面" class="headerlink" title="多错误指向一个页面"></a>多错误指向一个页面</h3><pre><code>cd/etc/nginx/conf.d/default.conf
+</code></pre><p>可以看到这句话</p>
+<pre><code>error_page   500 502 503 504  /50x.html;
+</code></pre><p>error_page 指令用于自定义错误页面，500，502，503，504 这些就是 HTTP 中最常见的错误代码，/50.html 用于表示当发生上述指定的任意一个错误的时候，都是用网站根目录下的/50.html 文件进行处理。</p>
+<h3 id="单独为错误置顶处理方式"><a href="#单独为错误置顶处理方式" class="headerlink" title="单独为错误置顶处理方式"></a>单独为错误置顶处理方式</h3><p>新建一个 404 错误页面</p>
+<pre><code>error_page 404  /404_error.html;
+</code></pre><p>然后到网站目录下新建一个 404_error.html 文件，并写入一些信息。</p>
+<pre><code>&lt;html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;body&gt;
+        &lt;h1&gt;404页面没有找到!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h3 id="把错误码换成一个地址"><a href="#把错误码换成一个地址" class="headerlink" title="把错误码换成一个地址"></a>把错误码换成一个地址</h3><pre><code>error_page  404 http://www.w3school.com.cn/;
+</code></pre><h3 id="简单实现访问控制"><a href="#简单实现访问控制" class="headerlink" title="简单实现访问控制"></a>简单实现访问控制</h3><p>可以直接在 default.conf 里进行配置。</p>
+<pre><code> location / {
+        deny   123.9.51.42;
+        allow  45.76.202.231;
+}
+</code></pre><h2 id="nginx-访问权限"><a href="#nginx-访问权限" class="headerlink" title="nginx 访问权限"></a>nginx 访问权限</h2><h3 id="指令优先级"><a href="#指令优先级" class="headerlink" title="指令优先级"></a>指令优先级</h3><pre><code> location / {
+    allow  45.76.202.231;
+    deny   all;
+}
+</code></pre><p>上面的配置表示只允许 45.76.202.231 进行访问，其他的 IP 是禁止访问的。但是如果我们把 deny all 指令，移动到 allow 45.76.202.231 之前，会发现所有的 IP 都不允许访问了<br><strong>这说明了一个问题：就是在同一个块下的两个权限指令，先出现的设置会覆盖后出现的设置（也就是谁先触发，谁起作用)</strong></p>
+<h3 id="复杂访问控制权限匹配"><a href="#复杂访问控制权限匹配" class="headerlink" title="复杂访问控制权限匹配"></a>复杂访问控制权限匹配</h3><pre><code>location =/img{
+        allow all;
+}
+location =/admin{
+    deny all;
+}
+</code></pre><h3 id="使用正则表达式设置访问权限"><a href="#使用正则表达式设置访问权限" class="headerlink" title="使用正则表达式设置访问权限"></a>使用正则表达式设置访问权限</h3><pre><code>location ~\.php$ {
+    deny all;
+}
+</code></pre><h2 id="Nginx-设置虚拟主机"><a href="#Nginx-设置虚拟主机" class="headerlink" title="Nginx 设置虚拟主机"></a>Nginx 设置虚拟主机</h2><h3 id="基于端口号配置虚拟主机"><a href="#基于端口号配置虚拟主机" class="headerlink" title="基于端口号配置虚拟主机"></a>基于端口号配置虚拟主机</h3><p>我们可以直接配置在主文件里 etc/nginx/nginx.conf 文件里， 也可以配置在子配置文件里 etc/nginx/conf.d/default.conf,当然你也可以再新建一个文件，只要在 conf.d 文件夹下就可以了。<br>修改配置文件中的 server 选项，这时候就会有两个 server。</p>
+<pre><code>server{
+    listen 8001;
+    server_name localhost;
+    root /usr/share/nginx/html/html8001;
+    index index.html;
+}
+</code></pre><p>然后我们就可以在浏览器中访问<a href="http://112.74.164.244:8001" target="_blank" rel="noopener">http://112.74.164.244:8001</a></p>
+<h3 id="基于-IP-的虚拟主机"><a href="#基于-IP-的虚拟主机" class="headerlink" title="基于 IP 的虚拟主机"></a>基于 IP 的虚拟主机</h3><pre><code>server{
+    listen 80;
+    server_name 112.74.164.244;
+    root /usr/share/nginx/html/html8001;
+    index index.html;
+}
+</code></pre><h3 id="配置以域名为划分的虚拟主机"><a href="#配置以域名为划分的虚拟主机" class="headerlink" title="配置以域名为划分的虚拟主机"></a>配置以域名为划分的虚拟主机</h3><pre><code>server{
+    listen 80;
+    server_name nginx2.jspang.com;
+    location / {
+        root /usr/share/nginx/html/html8001;
+        index index.html index.htm;
+    }
+}
+</code></pre><h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><pre><code>server{
+    listen 80;
+    server_name wutao.com;
+    location / {
+            proxy_pass http://wutao.com;
+    }
+}
+</code></pre><p>一般我们反向代理的都是一个 IP<br>其它反向代理指令<br>proxy_set_header :在将客户端请求发送给后端服务器之前，更改来自客户端的请求头信息。<br>proxy_connect_timeout:配置 Nginx 与后端代理服务器尝试建立连接的超时时间。<br>proxy_read_timeout : 配置 Nginx 向后端服务器组发出 read 请求后，等待相应的超时时间。<br>proxy_send_timeout：配置 Nginx 向后端服务器组发出 write 请求后，等待相应的超时时间。<br>proxy_redirect :用于修改后端服务器返回的响应头中的 Location 和 Refresh。</p>
+<h2 id="Nginx-适配-PC-或移动设备"><a href="#Nginx-适配-PC-或移动设备" class="headerlink" title="Nginx 适配 PC 或移动设备"></a>Nginx 适配 PC 或移动设备</h2><p>1.在/usr/share/nginx/目录下新建两个文件夹，分别为：pc 和 mobile 目录</p>
+<pre><code>cd /usr/share/nginx
+mkdir pc
+mkdir mobile
+</code></pre><p>2.在 pc 和 miblic 目录下，新建两个 index.html 文件，文件里下面内容</p>
+<pre><code>&lt;h1&gt;I am pc!&lt;/h1&gt;
+&lt;h1&gt;I am mobile!&lt;/h1&gt;
+</code></pre><p>3.进入 etc/nginx 修改 nginx.conf 文件，改为下面的形式:</p>
+<pre><code>server{
+    listen 80;
+    server_name nginx2.jspang.com;
+    location / {
+    root /usr/share/nginx/pc;
+    if ($http_user_agent ~* &#39;(Android|webOS|iPhone|iPod|BlackBerry)&#39;) {
+        root /usr/share/nginx/mobile;
+    }
+    index index.html;
+    }
+}
+</code></pre><h2 id="Nginx-的-Gzip-压缩配置"><a href="#Nginx-的-Gzip-压缩配置" class="headerlink" title="Nginx 的 Gzip 压缩配置"></a>Nginx 的 Gzip 压缩配置</h2><h3 id="gzip-的配置项"><a href="#gzip-的配置项" class="headerlink" title="gzip 的配置项"></a>gzip 的配置项</h3><p>gzip : 该指令用于开启或 关闭 gzip 模块。<br>gzip_buffers : 设置系统获取几个单位的缓存用于存储 gzip 的压缩结果数据流。<br>gzip_comp_level : gzip 压缩比，压缩级别是 1-9，1 的压缩级别最低，9 的压缩级别最高。压缩级别越高压缩率越大，压缩时间越长。<br>gzip_disable : 可以通过该指令对一些特定的 User-Agent 不使用压缩功能。<br>gzip_min_length:设置允许压缩的页面最小字节数，页面字节数从相应消息头的 Content-length 中进行获取。<br>gzip_http_version：识别 HTTP 协议版本，其值可以是 1.1.或 1.0.<br>gzip_proxied : 用于设置启用或禁用从代理服务器上收到相应内容 gzip 压缩。<br>gzip_vary : 用于在响应消息头中添加 Vary：Accept-Encoding,使代理服务器根据请求头中的 Accept-Encoding 识别是否启用 gzip 压缩。</p>
+<h3 id="gzip-最简单的配置"><a href="#gzip-最简单的配置" class="headerlink" title="gzip 最简单的配置"></a>gzip 最简单的配置</h3><pre><code>http {
+   .....
+    gzip on;
+    gzip_types text/plain application/javascript text/css;
+   .....
+}
+</code></pre><p>查看 HTTP 响应头信息。你可以清楚的看见 Content-Encoding 为 gzip 类型。</p>
+]]></content>
+      <categories>
+        <category>前端学习</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
