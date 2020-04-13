@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Vscode+Eslint+Prettier写Vue项目</title>
-    <url>/2018/11/15/Vscode-Eslint-Prettier%E5%86%99Vue%E9%A1%B9%E7%9B%AE/</url>
+    <url>/archives/55909.html</url>
     <content><![CDATA[<h2 id="安装-Vscode-和插件"><a href="#安装-Vscode-和插件" class="headerlink" title="安装 Vscode 和插件"></a>安装 Vscode 和插件</h2><p>首先安装<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Vscode 官网</a>下载安装包，安装好了之后启动，然后<code>ctrl+shift+X</code>,安装以下插件</p>
 <p><ol><br>    <li>Vetur</li><br>    <li>ESLint</li><br>    <li>Prettier - Code formatter</li><br></ol><br>安装完之后最好是重启下VS Code避免插件不生效的问题。</p>
 <h2 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h2><p>按<code>ctrl+,</code>,打开设置界面，设置 settings.json 文件，配置如下</p>
@@ -41,7 +41,7 @@
   </entry>
   <entry>
     <title>charles使用</title>
-    <url>/2018/11/08/charles%E4%BD%BF%E7%94%A8/</url>
+    <url>/archives/36932.html</url>
     <content><![CDATA[<h2 id="下载-charles-工具"><a href="#下载-charles-工具" class="headerlink" title="下载 charles 工具"></a>下载 charles 工具</h2><p>charles 破解版 链接:<a href="https://pan.baidu.com/s/1ps9VZC495UQKLjxPrsSU7w" target="_blank" rel="noopener">https://pan.baidu.com/s/1ps9VZC495UQKLjxPrsSU7w</a> 密码:uqfo</p>
 <a id="more"></a>
 <h2 id="电脑安装证书"><a href="#电脑安装证书" class="headerlink" title="电脑安装证书"></a>电脑安装证书</h2><pre><code>Help =&gt; SSL Proxying =&gt; Install Charles Root Certificate
@@ -60,7 +60,7 @@
   </entry>
   <entry>
     <title>hexo搭建</title>
-    <url>/2018/10/29/first/</url>
+    <url>/archives/33176.html</url>
     <content><![CDATA[<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>电脑安装好node和git，终端执行命令:</p>
 <pre><code>sudo npm install -g hexo
 </code></pre><p>接着在任意位置创建一个文件夹，如Blog，cd到该路径下执行以下命令</p>
@@ -101,7 +101,7 @@ www      CNAME         username.github.io.
   </entry>
   <entry>
     <title>git代码提交规范</title>
-    <url>/2019/01/23/git%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</url>
+    <url>/archives/10104.html</url>
     <content><![CDATA[<p>git 的提交格式化有很多好处，本文整理一套自己用的提交信息格式。</p>
 <h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p>提交信息包括三个部分：<code>header</code>，<code>body </code>和 <code>footer</code>。</p>
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
@@ -148,7 +148,7 @@ www      CNAME         username.github.io.
 <ol start="2">
 <li>进入目录执行:<br>commitizen init cz-conventional-changelog –save –save-exact</li>
 </ol>
-<p>配好后，之后用到 <code>git commit</code> 命令时，改为使用 <code>git cz</code>。就会出现选项，用来生成符合格式的 Commit message。<br><img src="/2019/01/23/git代码提交规范/pic.jpg" alt=""></p>
+<p>配好后，之后用到 <code>git commit</code> 命令时，改为使用 <code>git cz</code>。就会出现选项，用来生成符合格式的 Commit message。<br><img src="/archives/10104.htm/pic.jpg" alt=""></p>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><pre><code>feat: 添加了分享功能
 给每篇博文添加了分享功能
 
@@ -169,7 +169,7 @@ Close #1
   </entry>
   <entry>
     <title>netlify实现自动化部署</title>
-    <url>/2018/12/27/netlify/</url>
+    <url>/archives/10400.html</url>
     <content><![CDATA[<h2 id="使用-github-或者-gitlab-登陆-netlify"><a href="#使用-github-或者-gitlab-登陆-netlify" class="headerlink" title="使用 github 或者 gitlab 登陆 netlify"></a>使用 github 或者 gitlab 登陆 netlify</h2><p>首先，打开 netlify 网站(<a href="https://app.netlify.com/" target="_blank" rel="noopener">https://app.netlify.com/</a>)<br>然后使用 github 或者 gitlab 账号登录</p>
 <h2 id="根据-github-gitlab-仓库创建网站"><a href="#根据-github-gitlab-仓库创建网站" class="headerlink" title="根据 github/gitlab 仓库创建网站"></a>根据 github/gitlab 仓库创建网站</h2><p>点击 New site from Git 按钮 然后选择仓库所在的平台已经需要部署的仓库</p>
 <p><strong> 注意 </strong></p>
@@ -189,10 +189,10 @@ Close #1
   </entry>
   <entry>
     <title>vscode修改背景</title>
-    <url>/2019/01/15/vscode%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/</url>
-    <content><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/2019/01/15/vscode修改背景/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/2019/01/15/vscode修改背景/setting.jpg" alt=""></p>
-<p>重启 vscode 就可以生效了。<br><img src="/2019/01/15/vscode修改背景/result.png`" alt=""><br>看看效果是不是很 nice。</p>
-<p>以下三张图片是我自己用的，需要的自取。<br><img src="/2019/01/15/vscode修改背景/vscodeBg1.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg2.jpg" alt=""><br><img src="/2019/01/15/vscode修改背景/vscodeBg3.jpg" alt=""></p>
+    <url>/archives/36995.html</url>
+    <content><![CDATA[<h2 id="安装-background-插件"><a href="#安装-background-插件" class="headerlink" title="安装 background 插件"></a>安装 background 插件</h2><p><img src="/archives/36995.htm/download.jpg" alt=""><br>安装完成后，重启 vscode，进入 vscode 设置，在用户设置设置以下代码<br><img src="/archives/36995.htm/setting.jpg" alt=""></p>
+<p>重启 vscode 就可以生效了。<br><img src="/archives/36995.htm/result.png`" alt=""><br>看看效果是不是很 nice。</p>
+<p>以下三张图片是我自己用的，需要的自取。<br><img src="/archives/36995.htm/vscodeBg1.jpg" alt=""><br><img src="/archives/36995.htm/vscodeBg2.jpg" alt=""><br><img src="/archives/36995.htm/vscodeBg3.jpg" alt=""></p>
 ]]></content>
       <tags>
         <tag>前端编辑器</tag>
@@ -200,7 +200,7 @@ Close #1
   </entry>
   <entry>
     <title>vue去哪儿</title>
-    <url>/2018/11/23/vue%E5%8E%BB%E5%93%AA%E5%84%BF/</url>
+    <url>/archives/4117.html</url>
     <content><![CDATA[<h2 id="环境的搭建"><a href="#环境的搭建" class="headerlink" title="环境的搭建"></a>环境的搭建</h2><h3 id="建立文件夹"><a href="#建立文件夹" class="headerlink" title="建立文件夹"></a>建立文件夹</h3><p>在电脑合适的位置建立文件夹 <code>mkdir travel</code></p>
 <h3 id="使用-vue-cli-生成项目目录结构"><a href="#使用-vue-cli-生成项目目录结构" class="headerlink" title="使用 vue-cli 生成项目目录结构"></a>使用 vue-cli 生成项目目录结构</h3><p>1 检测 node，终端输入 <code>node -v</code><br>2 全局安装 vue-cli，在终端输入 <code>npm install vue-cli -g</code><br>3 终端输入 <code>vue init webpack</code></p>
 <h3 id="启动环境"><a href="#启动环境" class="headerlink" title="启动环境"></a>启动环境</h3><p>终端执行<code>npm run dev</code>,然后在浏览器输入<code>http://localhost:8080</code> 进行测试</p>
@@ -221,7 +221,7 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
   </entry>
   <entry>
     <title>you need to konw css</title>
-    <url>/2018/11/20/you-need-to-konw-css/</url>
+    <url>/archives/22145.html</url>
     <content><![CDATA[<h2 id="边框与背景"><a href="#边框与背景" class="headerlink" title="边框与背景"></a>边框与背景</h2><h3 id="边框内圆角"><a href="#边框内圆角" class="headerlink" title="边框内圆角"></a>边框内圆角</h3><iframe width="100%" height="300" src="//jsfiddle.net/Wt19930325/tvx0urem/28/embedded/html,css,result/" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></iframe>
 
 <h3 id="条纹背景"><a href="#条纹背景" class="headerlink" title="条纹背景"></a>条纹背景</h3><p>1.进度条</p>
@@ -238,7 +238,7 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
   </entry>
   <entry>
     <title>koa2学习</title>
-    <url>/2018/11/03/koa2%E5%AD%A6%E4%B9%A0/</url>
+    <url>/archives/13541.html</url>
     <content><![CDATA[<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><p>新建一个文件夹如koa2文件夹</p>
 <pre><code>cd koa2
 npm init -y
@@ -570,7 +570,7 @@ app.listen(3000, () =&gt; {
   </entry>
   <entry>
     <title>nginx学习</title>
-    <url>/2018/11/01/nginx/</url>
+    <url>/archives/50799.html</url>
     <content><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>购买阿里云 ECS.我用的操作系统是 CentOS 7.4 64 位版本。然后建立远程链接</p>
 <pre><code>ssh root@公网ip
 </code></pre><h3 id="用-yum-安装必要程序"><a href="#用-yum-安装必要程序" class="headerlink" title="用 yum 安装必要程序"></a>用 yum 安装必要程序</h3><pre><code>yum -y install gcc gcc-c++ autoconf pcre-devel make automake
@@ -778,7 +778,7 @@ mkdir mobile
   </entry>
   <entry>
     <title>javaScript常用工具方法封装</title>
-    <url>/2019/01/28/javaScript%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/</url>
+    <url>/archives/4120.html</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>总结了工作中经常用的方法<a id="more"></a></p>
 <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="type-类型判断"><a href="#type-类型判断" class="headerlink" title="type 类型判断"></a>type 类型判断</h3><pre class=" language-js"><code class="language-js">isString <span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//是否字符串</span>
     <span class="token keyword">return</span> Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'String'</span>

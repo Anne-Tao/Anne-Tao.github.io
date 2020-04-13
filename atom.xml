@@ -18,8 +18,8 @@
   
   <entry>
     <title>javaScript常用工具方法封装</title>
-    <link href="http://wutao.work/2019/01/28/javaScript%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%96%B9%E6%B3%95%E5%B0%81%E8%A3%85/"/>
-    <id>http://wutao.work/2019/01/28/javaScript常用工具方法封装/</id>
+    <link href="http://wutao.work/archives/4120.html"/>
+    <id>http://wutao.work/archives/4120.html</id>
     <published>2019-01-28T07:19:57.000Z</published>
     <updated>2020-04-13T04:21:40.744Z</updated>
     
@@ -38,10 +38,10 @@
   
   <entry>
     <title>git代码提交规范</title>
-    <link href="http://wutao.work/2019/01/23/git%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/"/>
-    <id>http://wutao.work/2019/01/23/git代码提交规范/</id>
+    <link href="http://wutao.work/archives/10104.html"/>
+    <id>http://wutao.work/archives/10104.html</id>
     <published>2019-01-23T02:40:40.000Z</published>
-    <updated>2020-04-13T06:42:36.942Z</updated>
+    <updated>2020-04-13T09:04:01.466Z</updated>
     
     <summary type="html">
     
@@ -65,10 +65,10 @@
   
   <entry>
     <title>vscode修改背景</title>
-    <link href="http://wutao.work/2019/01/15/vscode%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF/"/>
-    <id>http://wutao.work/2019/01/15/vscode修改背景/</id>
+    <link href="http://wutao.work/archives/36995.html"/>
+    <id>http://wutao.work/archives/36995.html</id>
     <published>2019-01-15T07:42:21.000Z</published>
-    <updated>2020-04-13T06:42:57.207Z</updated>
+    <updated>2020-04-13T09:04:49.695Z</updated>
     
     <summary type="html">
     
@@ -89,8 +89,8 @@
   
   <entry>
     <title>netlify实现自动化部署</title>
-    <link href="http://wutao.work/2018/12/27/netlify/"/>
-    <id>http://wutao.work/2018/12/27/netlify/</id>
+    <link href="http://wutao.work/archives/10400.html"/>
+    <id>http://wutao.work/archives/10400.html</id>
     <published>2018-12-27T09:31:22.000Z</published>
     <updated>2020-04-13T04:21:40.741Z</updated>
     
@@ -113,8 +113,8 @@
   
   <entry>
     <title>vue去哪儿</title>
-    <link href="http://wutao.work/2018/11/23/vue%E5%8E%BB%E5%93%AA%E5%84%BF/"/>
-    <id>http://wutao.work/2018/11/23/vue去哪儿/</id>
+    <link href="http://wutao.work/archives/4117.html"/>
+    <id>http://wutao.work/archives/4117.html</id>
     <published>2018-11-23T15:11:24.000Z</published>
     <updated>2020-04-13T04:21:40.742Z</updated>
     
@@ -139,8 +139,8 @@
   
   <entry>
     <title>you need to konw css</title>
-    <link href="http://wutao.work/2018/11/20/you-need-to-konw-css/"/>
-    <id>http://wutao.work/2018/11/20/you-need-to-konw-css/</id>
+    <link href="http://wutao.work/archives/22145.html"/>
+    <id>http://wutao.work/archives/22145.html</id>
     <published>2018-11-20T02:40:16.000Z</published>
     <updated>2020-04-13T04:21:40.743Z</updated>
     
@@ -165,8 +165,8 @@
   
   <entry>
     <title>Vscode+Eslint+Prettier写Vue项目</title>
-    <link href="http://wutao.work/2018/11/15/Vscode-Eslint-Prettier%E5%86%99Vue%E9%A1%B9%E7%9B%AE/"/>
-    <id>http://wutao.work/2018/11/15/Vscode-Eslint-Prettier写Vue项目/</id>
+    <link href="http://wutao.work/archives/55909.html"/>
+    <id>http://wutao.work/archives/55909.html</id>
     <published>2018-11-15T09:54:26.000Z</published>
     <updated>2020-04-13T04:21:40.737Z</updated>
     
@@ -191,8 +191,8 @@
   
   <entry>
     <title>charles使用</title>
-    <link href="http://wutao.work/2018/11/08/charles%E4%BD%BF%E7%94%A8/"/>
-    <id>http://wutao.work/2018/11/08/charles使用/</id>
+    <link href="http://wutao.work/archives/36932.html"/>
+    <id>http://wutao.work/archives/36932.html</id>
     <published>2018-11-08T03:29:48.000Z</published>
     <updated>2020-04-13T04:21:40.738Z</updated>
     
@@ -211,8 +211,8 @@
   
   <entry>
     <title>koa2学习</title>
-    <link href="http://wutao.work/2018/11/03/koa2%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://wutao.work/2018/11/03/koa2学习/</id>
+    <link href="http://wutao.work/archives/13541.html"/>
+    <id>http://wutao.work/archives/13541.html</id>
     <published>2018-11-03T14:29:08.000Z</published>
     <updated>2020-04-13T04:21:40.743Z</updated>
     
@@ -235,8 +235,8 @@ npm install --save koa
   
   <entry>
     <title>nginx学习</title>
-    <link href="http://wutao.work/2018/11/01/nginx/"/>
-    <id>http://wutao.work/2018/11/01/nginx/</id>
+    <link href="http://wutao.work/archives/50799.html"/>
+    <id>http://wutao.work/archives/50799.html</id>
     <published>2018-11-01T11:30:19.000Z</published>
     <updated>2020-04-13T04:21:40.744Z</updated>
     
@@ -259,8 +259,8 @@ yum -y install wget httpd-tools vim
   
   <entry>
     <title>hexo搭建</title>
-    <link href="http://wutao.work/2018/10/29/first/"/>
-    <id>http://wutao.work/2018/10/29/first/</id>
+    <link href="http://wutao.work/archives/33176.html"/>
+    <id>http://wutao.work/archives/33176.html</id>
     <published>2018-10-29T14:07:20.000Z</published>
     <updated>2020-04-13T04:21:40.739Z</updated>
     
