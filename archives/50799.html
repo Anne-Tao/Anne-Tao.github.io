@@ -544,7 +544,7 @@ http {
 <pre><code>cd /usr/share/nginx/html
 ls
 </code></pre><p>可以看到目录下面有两个文件，50x.html 和 index.html。我们可以使用 vim 进行编辑。</p>
-<h3 id="阿里云的安全组配置"><a href="#阿里云的安全组配置" class="headerlink" title="阿里云的安全组配置"></a>阿里云的安全组配置</h3><p>进入阿里云控制台，并找到 ECS 实例。点击实例后边的“更多”点击“网络和安全组” ，再点击“安全组配置”右上角添加“安全组配置”进行 80 端口的设置，具体设置如图就好。<br><img src="http://jspang.com/static/upload/20181009/N3bF8FMGxljMydjEdTztVw7g.png" alt=""></p>
+<h3 id="阿里云的安全组配置"><a href="#阿里云的安全组配置" class="headerlink" title="阿里云的安全组配置"></a>阿里云的安全组配置</h3><p>进入阿里云控制台，并找到 ECS 实例。点击实例后边的“更多”点击“网络和安全组” ，再点击“安全组配置”右上角添加“安全组配置”进行 80 端口的设置，具体设置如图就好。<br><img src="https://raw.githubusercontent.com/Anne-Tao/picBed/master/blog/WechatIMG18.png" alt=""></p>
 <h2 id="nginx-服务的启动、停止、重启"><a href="#nginx-服务的启动、停止、重启" class="headerlink" title="nginx 服务的启动、停止、重启"></a>nginx 服务的启动、停止、重启</h2><h3 id="nginx-的启动"><a href="#nginx-的启动" class="headerlink" title="nginx 的启动"></a>nginx 的启动</h3><p>在 CentOS7.4 版本里（低版本是不行的），是可以直接直接使用 nginx 启动服务的。</p>
 <pre><code>nginx
 </code></pre><p>使用 systemctl 命令启动</p>

@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>charles使用</title>
-    <url>/archives/36932.html</url>
-    <content><![CDATA[<h2 id="下载-charles-工具"><a href="#下载-charles-工具" class="headerlink" title="下载 charles 工具"></a>下载 charles 工具</h2><p>charles 破解版 链接:<a href="https://pan.baidu.com/s/1ps9VZC495UQKLjxPrsSU7w" target="_blank" rel="noopener">https://pan.baidu.com/s/1ps9VZC495UQKLjxPrsSU7w</a> 密码:uqfo</p>
-<a id="more"></a>
-<h2 id="电脑安装证书"><a href="#电脑安装证书" class="headerlink" title="电脑安装证书"></a>电脑安装证书</h2><pre><code>Help =&gt; SSL Proxying =&gt; Install Charles Root Certificate
-</code></pre><p>之后会弹出钥匙串，如果不弹出，请自行打开钥匙串.<br>系统默认是不信任 Charles 的证书的，此时对证书右键，在弹出的下拉菜单中选择『显示简介』，点击使用此证书时，把使用系统默认改为始终信任</p>
-<h2 id="手机设备安装证书"><a href="#手机设备安装证书" class="headerlink" title="手机设备安装证书"></a>手机设备安装证书</h2><pre><code>Help =&gt; SSL Proxying =&gt; Install Charles Root Certificate On a Mobile Device
-</code></pre><p>进入手机设置界面<br>设置服务器代理<br>ip 为你本机的 ip，端口 8888<br>然后打开手机的浏览器，输入<br>charlesproxy.com/getssl<br>安装证书</p>
-<h2 id="使用-SSL-代理"><a href="#使用-SSL-代理" class="headerlink" title="使用 SSL 代理"></a>使用 SSL 代理</h2><p>右击链接 =&gt; Enable SSL Proxying</p>
-<h2 id="操作之后依旧无法抓取-https-包，显示-unknown？"><a href="#操作之后依旧无法抓取-https-包，显示-unknown？" class="headerlink" title="操作之后依旧无法抓取 https 包，显示 unknown？"></a>操作之后依旧无法抓取 https 包，显示 unknown？</h2><p>设置 =&gt; 关于本机 =&gt; 证书信任设置 =&gt; 勾选「针对根证书启用完全信任」</p>
-]]></content>
-      <categories>
-        <category>前端调试工具</category>
-      </categories>
-      <tags>
-        <tag>debug</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo搭建</title>
     <url>/archives/33176.html</url>
     <content><![CDATA[<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>电脑安装好node和git，终端执行命令:</p>
@@ -146,6 +127,25 @@ Close #1
 ]]></content>
       <tags>
         <tag>前端部署工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>charles使用</title>
+    <url>/archives/36932.html</url>
+    <content><![CDATA[<h2 id="下载-charles-工具"><a href="#下载-charles-工具" class="headerlink" title="下载 charles 工具"></a>下载 charles 工具</h2><p>charles 破解版 链接:<a href="https://pan.baidu.com/s/1ps9VZC495UQKLjxPrsSU7w" target="_blank" rel="noopener">https://pan.baidu.com/s/1ps9VZC495UQKLjxPrsSU7w</a> 密码:uqfo</p>
+<a id="more"></a>
+<h2 id="电脑安装证书"><a href="#电脑安装证书" class="headerlink" title="电脑安装证书"></a>电脑安装证书</h2><pre><code>Help =&gt; SSL Proxying =&gt; Install Charles Root Certificate
+</code></pre><p>之后会弹出钥匙串，如果不弹出，请自行打开钥匙串.<br>系统默认是不信任 Charles 的证书的，此时对证书右键，在弹出的下拉菜单中选择『显示简介』，点击使用此证书时，把使用系统默认改为始终信任</p>
+<h2 id="手机设备安装证书"><a href="#手机设备安装证书" class="headerlink" title="手机设备安装证书"></a>手机设备安装证书</h2><pre><code>Help =&gt; SSL Proxying =&gt; Install Charles Root Certificate On a Mobile Device
+</code></pre><p>进入手机设置界面<br>设置服务器代理<br>ip 为你本机的 ip，端口 8888<br>然后打开手机的浏览器，输入<br>charlesproxy.com/getssl<br>安装证书</p>
+<h2 id="使用-SSL-代理"><a href="#使用-SSL-代理" class="headerlink" title="使用 SSL 代理"></a>使用 SSL 代理</h2><p>右击链接 =&gt; Enable SSL Proxying</p>
+<h2 id="操作之后依旧无法抓取-https-包，显示-unknown？"><a href="#操作之后依旧无法抓取-https-包，显示-unknown？" class="headerlink" title="操作之后依旧无法抓取 https 包，显示 unknown？"></a>操作之后依旧无法抓取 https 包，显示 unknown？</h2><p>设置 =&gt; 关于本机 =&gt; 证书信任设置 =&gt; 勾选「针对根证书启用完全信任」</p>
+]]></content>
+      <categories>
+        <category>前端调试工具</category>
+      </categories>
+      <tags>
+        <tag>debug</tag>
       </tags>
   </entry>
   <entry>
@@ -572,7 +572,7 @@ http {
 <pre><code>cd /usr/share/nginx/html
 ls
 </code></pre><p>可以看到目录下面有两个文件，50x.html 和 index.html。我们可以使用 vim 进行编辑。</p>
-<h3 id="阿里云的安全组配置"><a href="#阿里云的安全组配置" class="headerlink" title="阿里云的安全组配置"></a>阿里云的安全组配置</h3><p>进入阿里云控制台，并找到 ECS 实例。点击实例后边的“更多”点击“网络和安全组” ，再点击“安全组配置”右上角添加“安全组配置”进行 80 端口的设置，具体设置如图就好。<br><img src="http://jspang.com/static/upload/20181009/N3bF8FMGxljMydjEdTztVw7g.png" alt=""></p>
+<h3 id="阿里云的安全组配置"><a href="#阿里云的安全组配置" class="headerlink" title="阿里云的安全组配置"></a>阿里云的安全组配置</h3><p>进入阿里云控制台，并找到 ECS 实例。点击实例后边的“更多”点击“网络和安全组” ，再点击“安全组配置”右上角添加“安全组配置”进行 80 端口的设置，具体设置如图就好。<br><img src="https://raw.githubusercontent.com/Anne-Tao/picBed/master/blog/WechatIMG18.png" alt=""></p>
 <h2 id="nginx-服务的启动、停止、重启"><a href="#nginx-服务的启动、停止、重启" class="headerlink" title="nginx 服务的启动、停止、重启"></a>nginx 服务的启动、停止、重启</h2><h3 id="nginx-的启动"><a href="#nginx-的启动" class="headerlink" title="nginx 的启动"></a>nginx 的启动</h3><p>在 CentOS7.4 版本里（低版本是不行的），是可以直接直接使用 nginx 启动服务的。</p>
 <pre><code>nginx
 </code></pre><p>使用 systemctl 命令启动</p>
