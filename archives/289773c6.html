@@ -770,22 +770,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token comment" spellcheck="true">// adjust body font size</span>
   <span class="token keyword">function</span> <span class="token function">setBodyFontSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> bodyEl <span class="token operator">=</span> doc<span class="token punctuation">.</span>body
-    <span class="token comment" spellcheck="true">// 去除 no-js 样式</span>
-    <span class="token keyword">const</span> nojsStyle <span class="token operator">=</span> headEl<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'style[env=no-js]'</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>nojsStyle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      nojsStyle<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>nojsStyle<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">let</span> styleEl <span class="token operator">=</span> headEl<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'style[v-rem=flexible]'</span><span class="token punctuation">)</span>
-    <span class="token keyword">const</span> ruleName <span class="token operator">=</span> <span class="token string">'.l-maxwidth'</span>
-    <span class="token keyword">const</span> styleRule <span class="token operator">=</span> <span class="token template-string"><span class="token string">`max-width: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>maxClientWidth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px;`</span></span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleEl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      styleEl <span class="token operator">=</span> doc<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">)</span>
-      styleEl<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'v-rem'</span><span class="token punctuation">,</span> <span class="token string">'flexible'</span><span class="token punctuation">)</span>
-      headEl<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>styleEl<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    styleEl<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ruleName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> {</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>styleRule<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">}`</span></span>
-
     <span class="token keyword">if</span> <span class="token punctuation">(</span>bodyEl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       bodyEl<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bodyFontSize<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px`</span></span>
     <span class="token punctuation">}</span>
